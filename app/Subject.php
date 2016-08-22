@@ -6,13 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subject extends Model
 {
-  public function tasks()
-  {
-    return $this->hasMany('App\Task');
-  }
+    protected $fillable = ['name', 'description', 'status'];
 
-  public function course_subject()
-  {
-    return $this->belongsTo('App\CourseSubject');
-  }
+    public function tasks()
+    {
+        return $this->hasMany('App\Task');
+    }
+
+    public function courseSubject()
+    {
+        return $this->belongsTo('App\CourseSubject');
+    }
 }

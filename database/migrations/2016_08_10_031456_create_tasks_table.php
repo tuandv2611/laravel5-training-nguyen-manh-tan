@@ -16,8 +16,6 @@ class CreateTasksTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('description');
-            $table->datetime('start_time');
-            $table->datetime('end_time');
             $table->integer('status');
             $table->integer('subject_id')->unsigned();
             $table->foreign('subject_id')->references('id')->on('subjects');

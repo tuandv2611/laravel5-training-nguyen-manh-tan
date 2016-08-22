@@ -6,13 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserTask extends Model
 {
-  public function task()
-  {
-    return $this->belongsTo('App\Task');
-  }
+    protected $fillable = ['task_id', 'user_course_id', 'status'];
 
-  public function user_course()
-  {
-    return $this->belongsTo('App\UserCourse');
-  }
+    public function task()
+    {
+        return $this->belongsTo('App\Task');
+    }
+
+    public function userCourse()
+    {
+        return $this->belongsTo('App\UserCourse');
+    }
 }

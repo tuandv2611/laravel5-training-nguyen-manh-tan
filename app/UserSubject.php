@@ -6,13 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserSubject extends Model
 {
-  public function subject()
-  {
-    return $this->belongsTo('App\Subject');
-  }
+    protected $fillable = ['subject_id', 'user_course_id', 'status'];
 
-  public function user_course()
-  {
-    return $this->belongsTo('App\UserCourse');
-  }
+    public function subject()
+    {
+        return $this->belongsTo('App\Subject');
+    }
+
+    public function userCourse()
+    {
+        return $this->belongsTo('App\UserCourse');
+    }
 }

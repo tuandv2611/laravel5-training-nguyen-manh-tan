@@ -6,13 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Course extends Model
 {
-  public function course_subjects()
-  {
-    return $this->hasMany('App\CourseSubject');
-  }
+    protected $fillable = ['name', 'description', 'start_date', 'end_date', 'status'];
 
-  public function activities()
-  {
-    return $this->morphMany('App\Activity', 'target');
-  }
+    public function courseSubjects()
+    {
+        return $this->hasMany('App\CourseSubject');
+    }
+
+    public function activities()
+    {
+        return $this->morphMany('App\Activity', 'target');
+    }
 }

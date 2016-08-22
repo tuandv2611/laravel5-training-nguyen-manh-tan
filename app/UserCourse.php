@@ -6,23 +6,25 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserCourse extends Model
 {
-  public function user()
-  {
-    return $this->belongsTo('App\User');
-  }
+    protected $fillable = ['user_id', 'course_id', 'status'];
 
-  public function course()
-  {
-    return $this->belongsTo('App\Course');
-  }
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 
-  public function user_subjects()
-  {
-    return $this->hasMany('App\UserSubject');
-  }
+    public function course()
+    {
+        return $this->belongsTo('App\Course');
+    }
 
-  public function user_tasks()
-  {
-    return $this->hasMany('App\UserTask');
-  }
+    public function userSubjects()
+    {
+        return $this->hasMany('App\UserSubject');
+    }
+
+    public function userTasks()
+    {
+        return $this->hasMany('App\UserTask');
+    }
 }
